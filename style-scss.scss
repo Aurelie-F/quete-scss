@@ -1,0 +1,22 @@
+@mixin ring ($size, $color) {
+  width: $size;
+  height: $size;
+  border: $size/10 solid $color;
+  border-radius: 50%;
+  box-shadow: $size/100 $size/100 $size/100 0px darken($color, 20%),
+  inset $size/100 $size/100 $size/100 0px darken($color, 20%);
+}
+
+.myPrecious {
+  @include ring(50px,  #f76b0a);
+}
+
+.oneRing {
+  @include ring(200px,  #fdd615);
+}
+
+@for $i from 1 through 6 {
+  .ringRepeat:nth-of-type(#{$i}) {
+    @include ring($i*15px,  #313130 );
+  }
+}
